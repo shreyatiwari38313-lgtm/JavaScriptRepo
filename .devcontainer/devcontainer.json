@@ -1,0 +1,13 @@
+{
+  "name": "Node.js Codespace",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+  "settings": {},
+  "extensions": [
+    "dbaeumer.vscode-eslint"
+  ],
+  "forwardPorts": [],
+  "postCreateCommand": "npm install",
+  "remoteUser": "node"
+}
+
+
