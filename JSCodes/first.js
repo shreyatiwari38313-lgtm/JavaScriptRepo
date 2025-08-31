@@ -1,7 +1,7 @@
 console.log(" shreya");
 //DataTypes in js
-
-//number -for integer type values.Range - 
+//--Primitive DataTypes
+//number -for integer type values.Range -  2 to power 53
 //bigint - for integers that are too big that have range beyond number
 //         used for huge data (in facebook and radix like sites)
 //string - usually written in double  quotes ""
