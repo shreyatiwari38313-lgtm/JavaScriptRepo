@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Learning</title>
+    <style>
+        .bg-black{
+        background-color : rgb(31, 100, 122);
+        }
+    </style>
+</head>
+<body class = "bg-black">
+    <div>
+        <h1 id = "hello" class = "heading"> DOM learning on Chai aur Code<span style = "display: none;">text test</span></h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+    <ul>
+        <li class = "list-item"> one </li>
+        <li class = "list-item"> two </li>
+        <li class = "list-item"> three </li>
+        <li class = "list-item"> four </li>
+
+
+    </ul>
+</body>
+</html>
+
+<!------- querySelector() - gives you single value or first value --------->
+
+<!---------------- querySelectorAll() - gives you NodeList---------------
+------------------NodeList(3) [li, li, li] -------------
+NodeList => not pure arrays, they are similar like arrays as it has few ProtoType(same as arraylike forEach(),length, etc)
+            but they are not pure arrays as it doesn't have prototype(map etc).
+            If you want to use map first convert it into array then apply map     ----------->
+
+<!---------------- HTMLCollection ---------------
+it comes from "document.getElementByClassName()"
+ It does not have forEach property so we have to convert it into array using "Arrays.from()" ------------->
+
+

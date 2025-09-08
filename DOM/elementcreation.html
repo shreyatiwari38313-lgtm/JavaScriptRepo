@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | chai aur code </title>
+    <style>
+        .par{
+        background-color : rgb(77, 77, 181);
+        }
+    </style>
+</head>
+<body class="par">
+    <div class="parent">
+         <div class="day">Monday</div>
+         <div class="day">Tuesday</div>
+         <div class="day">Wednesday</div>
+         <div class="day">Thursday</div>
+
+    </div>
+</body>
+<script>
+     const parent = document.querySelector('.parent')
+     console.log(parent)            // all days
+     console.log(parent.children)    //HTMLCollection(array like property)
+     console.log(parent.children[1]) // Tuesday with tags
+     console.log(parent.children[1].innerHTML); // Tuesday
+    
+    // HTMLCollection looping we will aplly our basic for loop 
+    //as for any other loop we have to first convert it into array and then loop it
+     for (let i =0; i < parent.children.length; i++){
+        console.log(parent.children[i].innerHTML);
+        
+     }
+     parent.children[1].style.color = "pink"  // TUSeday ka color changes to pink
+
+     console.log(parent.firstElementChild);  // Monday with tags
+     console.log(parent.lastElementChild);   // Thursday with tags
+    
+     //child to parent
+     const dayOne = document.querySelector('.day')
+    //  console.log(dayOne)                     //Monday
+    //  console.log(dayOne.parentElement)      // all elements with tags and properties
+    //  console.log(dayOne.nextElementSibling);  // Tuesday with all tags
+
+    //IMP  property => .childNodes
+    console.log("NODES : ", parent.childNodes);   //NODEList[9]
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!---------CREATING ELEMENTS ------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code</title>
+</head>
+<body style = "background-color: darkviolet;">
+    
+</body>
+<script>
+    //creating a div property
+    const div = document.createElement('div')
+    //creating a h1 property
+   // const heading = document.createElement('h1')
+    console.log(div)
+
+
+    //setting some properties in created div tag(making class,making id of div) 
+    div.className = "hii"
+
+    //div.id = "myId"    //basic
+    div.id = Math.round(Math.random() * 10 + 1)  // "6" => for fun
+
+
+    // another property for creating element ".setAttribute()" for creating title
+    div.setAttribute("title", "generated title")
+
+    // to create styling to the created div
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+
+    //to create text in div
+
+    div.innerText = "Chai aur code"
+
+    //Adding div to webpage
+    const addtext = document.createTextNode("Chai aur code")
+    div.appendChild(addtext)
+     
+    //final  step to attach div in document
+    document.body.appendChild(div)
+
+
+
+
+</script>
+</html>
