@@ -1,0 +1,33 @@
+.container {
+  /* flexbox container */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button {
+  /* box => flexbox item */
+  border: 1px solid black;
+  height: 50px;
+  width: 70px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#grey {
+  background-color: grey;
+}
+
+#cyan {
+  background-color: cyan;
+}
+
+#purple {
+  background-color: purple;
+}
+
+#yellow {
+  background-color: yellow;
+}

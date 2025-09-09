@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style = "background-color: rgb(81, 13, 36);">
+    <ul class ="language">
+        <li>JavaScript</li>
+    </ul>
+      <!------- Now add more languages to ul ----->
+</body>
+<script>
+// making a function to add more languages to ul in diff ways
+   
+//   function addLanguage(langName){
+//     const li = document.createElement('li')
+//     li.innerHTML = langName
+//     //Select parent class
+//     document.querySelector('.language').appendChild(li);
+//   }
+//   addLanguage("python")
+//   addLanguage("C++")
+
+// second =>optimized approach as we do not need to traverse whole tree 
+
+//    function addOptionalLanguage(langName){
+//    const li= document.createElement('li')
+//    li.appendChild(document.createTextNode(langName))
+//    document.querySelector('.language').appendChild(li);
+//    }
+//    //calling function
+//    addOptionalLanguage("goLang")
+
+//+++++++++++++++++++ Edit ++++++++++++++++++++
+
+//  const secondLang = document.querySelector("li:nth-child(2)")
+//  //seconfLang.innerHTML = "MOjo"
+//  const newli = document.createElement('li')
+//  newli.textContent = "Mojo"
+//  //add li to page
+//  secondLang.replaceWith(newli);
+
+//+++++++++++++++ remove ++++++++++++++++++
+
+const lastLang = document.querySelector('li:last-child')
+lastLang.remove();
+
+
+</script>
+</html>
