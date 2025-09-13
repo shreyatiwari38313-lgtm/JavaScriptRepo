@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Events</title>
+</head>
+<body style="background-color: rgba(7, 7, 7, 0); color: rgb(217, 130, 230);">
+    <h2>Amazing images</h2>
+    <div>
+    <ul id ="images">
+     <li><img width="200px" height="200px" id ="a" src="30cac1cd-7a12-47ea-b9a6-1bff5166c3b0.jpeg" alt="photoshop"></li>
+     <li><img width="200px" height="200px" id ="b" src="949f7849-3cfd-4e12-bca7-d49dbdef7008.jpeg" alt=""></li>
+     <li><img width="200px" height="200px" id ="c" src="cafdd9cd-909d-40cd-a7a2-3fe176004266.jpeg" alt=""></li>
+     <li><img width="200px" height="200px" id ="d" src="ee38b1a9-bd1f-4095-90f1-3dc62e652f2a.jpeg" alt=""></li>
+     <li><img width="200px" height="200px" id ="e" src="Transform your workspace with stunning pink… (1).jpeg " alt=""></li>
+     <li><a href="https://google.com" id ="google">Google</a></li>
+    </ul>
+    </div>
+    <script>
+       /*      --------------- Events ------------------
+       Events are always executed sequentially except some exception cases.
+       
+       .addEventListener()
+        -> This method has three parameters:-
+            a) event name as string(in quotes).
+            b) callback(without name) function with event handler object.
+            c) false or true (by default "false" so no need to write it)
+                              
+       Topics to read during studying Events:-
+       //type, timestamp, preventDefault
+       // target, toElement,srcElement, currentTarget,
+       // clientX, cliectY, screenX, screenY--> "interview perspective"
+       // altkey, ctrlkey, shiftkey, keyCode
+
+       */
+    //        -------- Approach 2 ---------
+    //   document.getElementById('c').onclick = function(){
+    //     alert("3rd photo clicked")
+    //   }
+    // This approach is fine.But this(using 'onclick' event directly on id(or image)) will give less functionality and features.
+    // So it is suggested to use "Event Listeners" instead.They give more features. 
+    
+    // --------- Approach 3 ----------
+    // document.getElementById('c').addEventListener('click', function(e){
+    //     //alert("image clicked")       not used ,instead we give an object (e (take any name, here "e")) in callback function
+    //     console.log(e);
+    //     //This object (e) has many values(in console when event occurs).Interview Questions are asked on that.
+    //     // ---------- 
+    // },false)
+
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  
+
+    /* -----------  Event Propagation ----------- 
+    Event propagation means Event Execution.
+    Event propagation has two concepts:
+    a)Event Bubbling (false) => default
+    b)Event Capturing (true)
+    
+    */
+//---------------------------------------------------------------------------------------------------------
+    //Example for Event Propagation
+    //First one --- Event Bubbling (Bottom-Top)
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside ul");
+    // },false)                           
+    
+    // //second one
+    // document.getElementById('c').addEventListener('click', function(e){
+    //     console.log("3rd photo clicked");
+    // },false)
+
+
+    //when any area except 3rd photo is clicked
+    // O/P :  
+    // first.html:64 clicked inside ul
+
+    // when only 3rd photo is clicked 
+    //O/P :  
+    // first.html:64 3rd photo clicked
+    // first.html:64 clicked inside ul
+
+    // This concept is called Event Bubbling(innermost function 
+    // or event is executed first and then outer just like bubble )
+//-------------------------------------------------------------------------------------------------------
+    // //Second One  --- Event Capturing (Top-Bottom)
+    //     document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside ul");
+    // },true)                           
+    
+    // //second one
+    // document.getElementById('c').addEventListener('click', function(e){
+    //     console.log("3rd photo clicked");
+    // },true)
+    
+    //when any area except 3rd photo is clicked
+    // O/P :  
+    // first.html:64 clicked inside ul
+
+    // when only 3rd photo is clicked 
+    //O/P :  
+    // first.html:64 clicked inside ul       //  "order of execution changes here"
+    // first.html:64 3rd photo clicked
+//-------------------------------------------------------------------------------------------------------
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside ul");
+    // })                  //event propagation by default false
+
+    // document.getElementById('c').addEventListener('click', function(e){
+    //     console.log("3rd photo clicked");
+    //     e.stopPropagation()     // it gives single output means it prevents from bubbling (or capturing) of events
+
+    // })
+
+    //O/P:- when  photo clicked (supposed o/p was two 3rd photo clicked and clicked inside ul)
+    //  3rd photo clicked     means "e.stopPropagation()" stops propagation of events.
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// --------------------- Project -> remove/clear image when clicked ----------------------
+
+// document.querySelector('#images').addEventListener('click',function(e){
+//     // .target method  // gives specific tag with info written in it
+//    console.log(e.target.parentNode);    // target ->img but we want li to remove. as if we remove only img there will be dot leftover
+//    //target.parentNode -> img.parentNode -> li 
+//    let removeIt = e.target.parentNode;
+//    // using "remove" predefined method 
+//    removeIt.remove();
+//    //2nd method-> using "removeChild()"  involves ul here 
+//    //removeIt.parentNode.removeChild(removeIt)
+// },false)
+
+//-----------------------
+//all good but what if we clicked on li not on image, it will end up removing all photos at once
+//we will apply strict checks for that in same
+
+document.querySelector('#images').addEventListener('click',function(e){
+    //.tagName -> where clicked it gives its name(for exm - LI, IMG)
+    // console.log(e.target.tagName);
+     
+    if(e.target.tagName === 'IMG'){
+       console.log(e.target.id);   //jus to print id's of delted and undeleted elements on event occuring
+       let removeIt = e.target.parentNode;
+       removeIt.remove();
+    }
+      
+},false)
+
+    </script>
+</body>
+</html>

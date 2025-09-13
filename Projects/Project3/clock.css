@@ -1,0 +1,12 @@
+.clk {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hello {
+  border: 1px solid black;
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: chocolate;
+}
