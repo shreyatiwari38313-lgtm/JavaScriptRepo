@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello! JS Lovers</h1>
+    <button id="button">Stop</button>
+</body>
+<script>
+    /* There are some functions through browser (not core functions of JS).
+     JS V8 Engine has memory stack and call stack only. When these functions(setTimeout().....) are called, pointer moves outside V8 engine 
+     Then through Event queue work is done.
+
+     a)setTimeout() - basic function,also calls an API. "only executes once" after a set timeout
+        It needs two parameters :-
+            i) handler(same as callback but sometimes we have to give reference so handler can have name)
+            ii)timeout - time which is given in number(in miliseconds).for exm - 2000(2 seconds)
+
+
+     b)clearTimeout() - it clears the setTimeout method means if before specifed time in setTimeout we stop the setTimeout the changes will not happen
+                        This function takes reference only
+
+     c)setInterval() - It also takes timeout after that "it again and again" executes code. 
+     Discussed in "functions2.html" file
+
+
+
+    */
+
+    //Examples
+    //Method 1 to use it
+    setTimeout(function(){
+        console.log("Shree Shiva Tiwari")
+    },2000)      // after 2 seconds
+
+    //Method 2 using function "reference" - you have to give reference only(no use of paranthesis in setTimeout) 
+    // const time = function(){
+    //     console.log("hello");   
+    // }
+    // setTimeout(time, 3000);   //after 3 seconds
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+   // user want to change h1 content-
+
+   //document.querySelector('h1').innerHTML = "Hello Developers"
+   
+   // user want to change h1 content after a specified time interval
+//    const changeContent = function(){
+//     document.querySelector('h1').innerHTML = "Hello Developers"
+//    }
+//    setTimeout(changeContent, 3000)
+
+//----------------- clearTimeout
+
+const changeContent = function(){
+    document.querySelector('h1').innerHTML = "Hello Developers"
+   }
+
+ const changeMe = setTimeout(changeContent, 3000)
+//Method 1
+// clearTimeout(changeMe)  //nothing will change as we have applied clearTimeout()
+
+// Method 2 - we directly apply clearTimeout() on button using Event Listener
+ document.querySelector('#button').addEventListener('click',function(){
+   clearTimeout(changeMe)
+   console.log("Stopped Timeout");  //just a message when button clicked before 3seconds to stop setTimeout
+   
+ })
+
+ 
+
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events 2</title>
+</head>
+<body>
+    <h1>Hello! JS Lovers</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    /*
+    Functions :-
+    c)setTimeInterval() - It also takes timeout after that "it again and again" executes code. 
+    It will execute until it gets stopped manually
+      It have three parameters - mainly two used :-
+        i) handler(same as callback but sometimes we have to give reference so handler can have name)
+        ii)timeout - time which is given in number(in miliseconds).for exm - 2000(2 seconds)
+
+        iii)String - message can be passed(optional)
+    
+        d)clearInterval() - used to clear setInterval()
+                            It needs reference of setInterval to be cleared
+    */
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //Examples 
+    //Method 1
+    // setInterval(function(){
+    //  //  console.log("shreya")
+    //   console.log("shreya",Date.now())
+    // },1000)
+//-------------------------------------------------------------------
+    //Method 2 => using reference of function
+    //   const showName= function(){
+    //   console.log("shreya",Date.now())
+    // }
+
+    // setInterval(showName,2000)
+//----------------------------------------------
+   //3rd parameter -> message
+    //   const showName= function(str){
+    //   console.log(str,Date.now())
+    // }
+
+    // setInterval(showName,2000,"Hello! Shreya")
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//------------------ clearInterval()
+    //   const showName= function(){
+    //   console.log("Hello! tiwari g",Date.now())
+    // }
+
+    // const ref = setInterval(showName,2000)
+    // clearInterval(ref)       //Nothing will print as we stopped setInterval()
+
+//------------------------------------------------------------------
+// TASK - when clicked on start button name with date starts printing 
+//         and when stop button clicked name printing should stop
+
+//This gives you undefined means the function is returning undefined
+// const Start  =  document.querySelector('#start').addEventListener('click',function(){
+//     console.log("Hello shreya G",Date.now())
+// })
+//  setInterval(Start,1000) //printed only once 
+ 
+// ============ Writing separate function and then adding it to button=========================
+// This will also not work because of scope of Stop
+
+//  function Start(){
+//     console.log("Hello shreya G",Date.now())
+//  }
+
+//  document.querySelector('#start').addEventListener('click',function(){
+//    const Stop =  setInterval(Start,1000)
+//  })
+
+//  document.querySelector('#stop').addEventListener('click',function(){
+//     clearInterval(Stop)
+//  })
+
+//-----------------------------------------------------
+
+let intervalVar;    //global scope
+
+// console.log(intervalVar)     //undefined
+// console.log(!intervalVar)   //true
+
+ function Start(){
+    console.log("Hello shreya G",Date.now())
+ }
+
+ document.querySelector('#start').addEventListener('click',function(){
+    if(!intervalVar){   //true
+       intervalVar= setInterval(Start,1000)
+    }
+ })
+
+
+ document.querySelector('#stop').addEventListener('click',function(){
+    clearInterval(intervalVar)
+ })
+
+
+
+
+
+
+
+// document.querySelector('#stop').addEventListener('click',function(){
+ 
+//  clearInterval(Stop)
+// })
+
+
+
+</script>
+</html>
